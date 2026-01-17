@@ -1,80 +1,54 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useCallback } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
+
+const images = [
+  { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
+  { id: 8, src: "/image8.png", alt: "Gallery image 8" },
+  { id: 9, src: "/image9.png", alt: "Gallery image 9" },
+  { id: 2, src: "/image2.jpeg", alt: "Gallery image 2" },
+  { id: 3, src: "/image3.jpeg", alt: "Gallery image 3" },
+  { id: 4, src: "/image4.jpeg", alt: "Gallery image 4" },
+  { id: 5, src: "/image5.jpeg", alt: "Gallery image 5" },
+  { id: 6, src: "/image6.jpeg", alt: "Gallery image 6" },
+  { id: 7, src: "/image7.jpeg", alt: "Gallery image 7" },
+]
 
 export default function Gallery() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
 
-  const works = [
-    {
-      id: "case-1",
-      title: "Advanced Diagnostic Protocol Implementation",
-      category: "Clinical Research",
-      image: "/medical-diagnostic-imaging.jpg",
-    },
-    {
-      id: "case-2",
-      title: "Patient Education Initiative",
-      category: "Healthcare Leadership",
-      image: "/medical-seminar-teaching.jpg",
-    },
-    {
-      id: "case-3",
-      title: "Complex Case Management",
-      category: "Clinical Practice",
-      image: "/hospital-medical-staff.jpg",
-    },
-    {
-      id: "case-4",
-      title: "Interdisciplinary Team Collaboration",
-      category: "Healthcare Innovation",
-      image: "/medical-team-meeting.jpg",
-    },
-    {
-      id: "case-5",
-      title: "Research Publication & Presentation",
-      category: "Academic Medicine",
-      image: "/medical-research-lab.jpg",
-    },
-    {
-      id: "case-6",
-      title: "Residency Program Development",
-      category: "Medical Education",
-      image: "/medical-education-training.jpg",
-    },
-  ]
+  const handleImageLoad = useCallback((id: number) => {
+    setLoadedImages((prev) => new Set(prev).add(id))
+  }, [])
 
   return (
     <section className="border-b border-border px-6 sm:px-10 md:px-16 py-12 md:py-20">
-      <h3 className="text-sm font-medium text-accent mb-10 md:mb-16 uppercase tracking-wide">Work Gallery</h3>
+      <h3 className="text-sm font-medium text-accent mb-10 md:mb-16 uppercase tracking-wide">
+        Gallery
+      </h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {works.map((work) => (
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+        {images.map((image) => (
           <div
-            key={work.id}
-            className="group cursor-pointer overflow-hidden rounded-lg"
-            onMouseEnter={() => setHoveredId(work.id)}
-            onMouseLeave={() => setHoveredId(null)}
+            key={image.id}
+            className="relative overflow-hidden rounded-lg bg-muted break-inside-avoid"
           >
-            <div className="relative h-48 md:h-64 w-full bg-muted overflow-hidden">
-              <Image
-                src={work.image || "/placeholder.svg"}
-                alt={work.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300" />
-            </div>
-
-            <div
-              className={`p-3 md:p-4 transition-all duration-300 ${
-                hoveredId === work.id ? "bg-primary text-primary-foreground" : "bg-card text-card-foreground"
+            {!loadedImages.has(image.id) && (
+              <Skeleton className="absolute inset-0 w-full h-full rounded-lg z-10" />
+            )}
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={600}
+              height={800}
+              className={`w-full h-auto object-cover transition-opacity duration-300 rounded-lg ${
+                loadedImages.has(image.id) ? "opacity-100" : "opacity-0"
               }`}
-            >
-              <p className="text-xs font-medium opacity-75 mb-1">{work.category}</p>
-              <h4 className="font-medium text-sm">{work.title}</h4>
-            </div>
+              onLoad={() => handleImageLoad(image.id)}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
           </div>
         ))}
       </div>

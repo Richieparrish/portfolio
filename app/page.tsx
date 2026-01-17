@@ -19,9 +19,9 @@ export default function Home() {
         <section id="experience" className="scroll-mt-0">
           <Experience />
         </section>
-        {/* <section id="gallery" className="scroll-mt-0">
+        <section id="gallery" className="scroll-mt-0">
           <Gallery />
-        </section> */}
+        </section>
         <section id="contact" className="scroll-mt-0">
           <Contact />
         </section>

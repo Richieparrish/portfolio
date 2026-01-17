@@ -6,14 +6,13 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 const images = [
   { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
+  { id: 7, src: "/image7.jpeg", alt: "Gallery image 7" },
   { id: 8, src: "/image8.png", alt: "Gallery image 8" },
-  { id: 9, src: "/image9.png", alt: "Gallery image 9" },
   { id: 2, src: "/image2.jpeg", alt: "Gallery image 2" },
   { id: 3, src: "/image3.jpeg", alt: "Gallery image 3" },
   { id: 4, src: "/image4.jpeg", alt: "Gallery image 4" },
   { id: 5, src: "/image5.jpeg", alt: "Gallery image 5" },
   { id: 6, src: "/image6.jpeg", alt: "Gallery image 6" },
-  { id: 7, src: "/image7.jpeg", alt: "Gallery image 7" },
 ]
 
 export default function Gallery() {

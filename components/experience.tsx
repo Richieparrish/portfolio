@@ -52,24 +52,35 @@ export default function Experience() {
         "Utilized Git/GitHub for version control and collaborative coding",
       ],
     },
-  ]
+  ];
 
   return (
     <section className="border-b border-border px-6 sm:px-10 md:px-16 py-12 md:py-20">
-      <h3 className="text-sm font-medium text-accent mb-10 md:mb-16 uppercase tracking-wide">Professional Experience</h3>
+      <h3 className="text-sm font-medium text-accent mb-10 md:mb-16 uppercase tracking-wide">
+        Professional Experience
+      </h3>
 
       <div className="max-w-4xl space-y-8 md:space-y-12">
         {positions.map((position, idx) => (
           <div key={idx} className="flex flex-col md:flex-row gap-2 md:gap-8">
             <div className="md:w-44 flex-shrink-0">
-              <p className="text-xs md:text-sm text-muted-foreground font-medium">{position.year}</p>
+              <p className="text-xs md:text-sm text-muted-foreground font-medium">
+                {position.year}
+              </p>
             </div>
             <div className="flex-1 border-l-2 md:border-l border-border pl-4 md:pl-8 mt-2 md:mt-0">
-              <h4 className="text-base md:text-lg font-medium text-foreground mb-1">{position.title}</h4>
-              <p className="text-sm md:text-base text-accent mb-2 md:mb-3">{position.institution}</p>
+              <h4 className="text-base md:text-lg font-medium text-foreground mb-1">
+                {position.title}
+              </h4>
+              <p className="text-sm md:text-base text-accent mb-2 md:mb-3">
+                {position.institution}
+              </p>
               <ul className="space-y-1 md:space-y-1.5">
                 {position.description.map((item, i) => (
-                  <li key={i} className="text-sm md:text-base text-foreground/70 leading-relaxed flex items-start gap-2">
+                  <li
+                    key={i}
+                    className="text-sm md:text-base text-foreground/70 leading-relaxed flex items-start gap-2"
+                  >
                     <span className="w-1 h-1 md:w-1.5 md:h-1.5 bg-accent/50 rounded-full mt-2 flex-shrink-0"></span>
                     {item}
                   </li>
@@ -80,5 +91,5 @@ export default function Experience() {
         ))}
       </div>
     </section>
-  )
+  );
 }

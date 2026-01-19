@@ -34,7 +34,11 @@ export function ThemeSwitcher() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon" className="sm:hidden text-foreground">
+          <Button
+            variant="outline"
+            size="icon"
+            className="sm:hidden text-foreground"
+          >
             {theme === "light" ? (
               <Sun className="h-4 w-4" />
             ) : theme === "system" ? (

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useState, useCallback } from "react"
-import { Skeleton } from "@/components/ui/skeleton"
+import Image from "next/image";
+import { useState, useCallback } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const images = [
   { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
@@ -13,14 +13,14 @@ const images = [
   { id: 4, src: "/image4.jpeg", alt: "Gallery image 4" },
   { id: 5, src: "/image5.jpeg", alt: "Gallery image 5" },
   { id: 6, src: "/image6.jpeg", alt: "Gallery image 6" },
-]
+];
 
 export default function Gallery() {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   const handleImageLoad = useCallback((id: number) => {
-    setLoadedImages((prev) => new Set(prev).add(id))
-  }, [])
+    setLoadedImages((prev) => new Set(prev).add(id));
+  }, []);
 
   return (
     <section className="border-b border-border px-6 sm:px-10 md:px-16 py-12 md:py-20">
@@ -52,5 +52,5 @@ export default function Gallery() {
         ))}
       </div>
     </section>
-  )
+  );
 }

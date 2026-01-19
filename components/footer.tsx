@@ -1,6 +1,6 @@
 import { ThemeSwitcher } from "./theme-switcher";
 
-export default function Contact() {
+export default function Footer() {
   return (
     <section className="px-6 sm:px-10 md:px-16 py-12 md:py-20 bg-primary text-primary-foreground">
       <div className="w-full">

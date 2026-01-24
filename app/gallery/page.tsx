@@ -7,6 +7,8 @@ import Footer from "@/components/footer";
 import { ArrowUpRight } from "lucide-react";
 import { useState, useCallback } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "motion/react";
+import { FadeUp } from "@/components/animations";
 
 const images = [
   { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
@@ -31,19 +33,31 @@ export default function GalleryPage() {
       <main className="flex-1 pt-16">
         <section className="px-6 sm:px-10 md:px-16 py-12 md:py-20">
           <div className="mb-10 md:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-              Gallery
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl">
-              A collection of moments from my professional journey, events, and
-              collaborations.
-            </p>
+            <FadeUp>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4">
+                Gallery
+              </h1>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <p className="text-muted-foreground text-lg max-w-2xl">
+                A collection of moments from my professional journey, events,
+                and collaborations.
+              </p>
+            </FadeUp>
           </div>
 
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
-            {images.map((image) => (
-              <div
+            {images.map((image, index) => (
+              <motion.div
                 key={image.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.4, 0.25, 1],
+                }}
                 className="relative overflow-hidden rounded-lg bg-muted break-inside-avoid"
               >
                 {!loadedImages.has(image.id) && (
@@ -60,26 +74,28 @@ export default function GalleryPage() {
                   onLoad={() => handleImageLoad(image.id)}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         <section className="px-6 sm:px-10 md:px-16 py-20 md:py-28 border-t border-border bg-muted/50">
-          <Link
-            href="/projects"
-            className="group flex items-center justify-between"
-          >
-            <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                Continue Exploring
-              </p>
-              <p className="text-2xl md:text-3xl font-light group-hover:text-accent transition-colors">
-                View Projects
-              </p>
-            </div>
-            <ArrowUpRight className="w-8 h-8 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-          </Link>
+          <FadeUp>
+            <Link
+              href="/projects"
+              className="group flex items-center justify-between"
+            >
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                  Continue Exploring
+                </p>
+                <p className="text-2xl md:text-3xl font-light group-hover:text-accent transition-colors">
+                  View Projects
+                </p>
+              </div>
+              <ArrowUpRight className="w-8 h-8 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+            </Link>
+          </FadeUp>
         </section>
       </main>
 

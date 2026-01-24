@@ -17,11 +17,7 @@ import { useState, useEffect } from "react";
 const navItems = [
   { href: "/", label: "Home", number: "01" },
   { href: "/gallery", label: "Gallery", number: "02" },
-  {
-    href: "/projects/towcester-health-profile",
-    label: "Projects",
-    number: "03",
-  },
+  { href: "/projects", label: "Projects", number: "03" },
 ];
 
 export default function Navbar() {

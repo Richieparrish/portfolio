@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
-import { useState, useCallback } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ArrowUpRight } from "lucide-react";
+import { useState, useCallback } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const images = [
   { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
@@ -61,6 +63,23 @@ export default function GalleryPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="px-6 sm:px-10 md:px-16 py-20 md:py-28 border-t border-border bg-muted/50">
+          <Link
+            href="/projects"
+            className="group flex items-center justify-between"
+          >
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                Continue Exploring
+              </p>
+              <p className="text-2xl md:text-3xl font-light group-hover:text-accent transition-colors">
+                View Projects
+              </p>
+            </div>
+            <ArrowUpRight className="w-8 h-8 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+          </Link>
         </section>
       </main>
 

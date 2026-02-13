@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useCallback } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -25,18 +23,6 @@ import {
   ScaleUp,
 } from "@/components/animations";
 
-const projectImages = [
-  {
-    id: 7,
-    src: "/image7.png",
-    alt: "Group 5 team at University of Northampton",
-  },
-  {
-    id: 8,
-    src: "/image8.png",
-    alt: "Project presentation and filming session",
-  },
-];
 
 const communityAssets = [
   {
@@ -75,12 +61,6 @@ const recommendations = [
 ];
 
 export default function TowcesterHealthProfilePage() {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-
-  const handleImageLoad = useCallback((id: number) => {
-    setLoadedImages((prev) => new Set(prev).add(id));
-  }, []);
-
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
@@ -147,8 +127,8 @@ export default function TowcesterHealthProfilePage() {
           <ScaleUp>
             <AspectRatio ratio={16 / 9} className="rounded-2xl overflow-hidden">
               <Image
-                src="/image7.png"
-                alt="Project Image"
+                src="/img2.jpg"
+                alt="Group 5 team at University of Northampton"
                 fill
                 className="object-cover"
               />
@@ -168,6 +148,21 @@ export default function TowcesterHealthProfilePage() {
             </div>
             <div className="lg:col-span-8">
               <FadeUp delay={0.1}>
+                <div className="hidden lg:block float-left mr-8 w-72">
+                  <ScaleUp delay={0.2}>
+                    <AspectRatio
+                      ratio={3 / 4}
+                      className="rounded-2xl overflow-hidden shadow-lg"
+                    >
+                      <Image
+                        src="/img3.jpg"
+                        alt="Personal photo from the project"
+                        fill
+                        className="object-cover"
+                      />
+                    </AspectRatio>
+                  </ScaleUp>
+                </div>
                 <p className="text-xl md:text-2xl font-light leading-relaxed text-foreground/90">
                   As part of the 2024 SLCPP Placement 3, I supported "Group 5"
                   in conducting a comprehensive community diagnosis of
@@ -177,6 +172,21 @@ export default function TowcesterHealthProfilePage() {
                   England's oldest continuously inhabited towns.
                 </p>
               </FadeUp>
+              <ScaleUp delay={0.2} className="lg:hidden mt-8 md:mt-12">
+                <div className="max-w-sm">
+                  <AspectRatio
+                    ratio={3 / 4}
+                    className="rounded-2xl overflow-hidden shadow-lg"
+                  >
+                    <Image
+                      src="/img3.jpg"
+                      alt="Personal photo from the project"
+                      fill
+                      className="object-cover"
+                    />
+                  </AspectRatio>
+                </div>
+              </ScaleUp>
             </div>
           </div>
         </section>
@@ -380,8 +390,8 @@ export default function TowcesterHealthProfilePage() {
           <ScaleUp>
             <AspectRatio ratio={16 / 9} className="rounded-2xl overflow-hidden">
               <Image
-                src="/image8.png"
-                alt="Project Image"
+                src="/img4.jpg"
+                alt="Project presentation and filming session"
                 fill
                 className="object-cover"
               />

@@ -13,37 +13,67 @@ export default function Footer() {
         </p>
 
         <div className="space-y-6 md:space-y-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 pt-6 md:pt-8 border-t border-primary-foreground/20">
+          <div className="flex flex-col gap-8 pt-6 md:pt-8 border-t border-primary-foreground/20">
             <div>
-              <p className="text-xs md:text-sm opacity-75 mb-1">Email</p>
-              <p className="text-base md:text-lg">richardadenigba2@gmail.com</p>
-            </div>
-            <div>
-              <p className="text-xs md:text-sm opacity-75 mb-1">Phone</p>
-              <p className="text-base md:text-lg">+44 (0) 7352 206104</p>
-            </div>
-            <div>
-              <p className="text-xs md:text-sm opacity-75 mb-1">Location</p>
-              <p className="text-base md:text-lg">England, UK</p>
-            </div>
-            <div>
-              <p className="text-xs md:text-sm opacity-75 mb-1">Links</p>
+              <h3 className="text-sm font-medium mb-2 uppercase tracking-wide opacity-90">
+                Links
+              </h3>
               <div className="flex gap-4">
                 <a
                   href="https://github.com/Richieparrish"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base md:text-lg hover:underline underline-offset-2 transition-all"
+                  className="group relative inline-flex items-center gap-2 text-xl md:text-2xl font-light overflow-hidden"
                 >
-                  GitHub
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-foreground">
+                    GitHub
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary-foreground scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+                  <span className="sr-only">Visit GitHub</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-primary-foreground"
+                  >
+                    <path
+                      d="M1 11L11 1M11 1H3M11 1V9"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/richard-adenigba-8432733a2/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base md:text-lg hover:underline underline-offset-2 transition-all"
+                  className="group relative inline-flex items-center gap-2 text-xl md:text-2xl font-light overflow-hidden"
                 >
-                  LinkedIn
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-foreground">
+                    LinkedIn
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary-foreground scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+                  <span className="sr-only">Visit LinkedIn</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 text-primary-foreground"
+                  >
+                    <path
+                      d="M1 11L11 1M11 1H3M11 1V9"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>

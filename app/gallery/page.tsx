@@ -11,12 +11,10 @@ import { motion } from "motion/react";
 import { FadeUp } from "@/components/animations";
 
 const images = [
-  { id: 1, src: "/image1.jpeg", alt: "Gallery image 1" },
-  { id: 2, src: "/image2.jpeg", alt: "Gallery image 2" },
-  { id: 3, src: "/image3.jpeg", alt: "Gallery image 3" },
-  { id: 4, src: "/image4.jpeg", alt: "Gallery image 4" },
-  { id: 5, src: "/image5.jpeg", alt: "Gallery image 5" },
-  { id: 6, src: "/image6.jpeg", alt: "Gallery image 6" },
+  { id: 1, src: "/img1.jpeg", alt: "Gallery Image 1" },
+  { id: 2, src: "/img2.jpg", alt: "Gallery Image 2" },
+  { id: 3, src: "/img3.jpg", alt: "Gallery Image 3" },
+  { id: 4, src: "/img4.jpg", alt: "Gallery Image 4" },
 ];
 
 export default function GalleryPage() {

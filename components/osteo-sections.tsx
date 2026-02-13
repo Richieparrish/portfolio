@@ -257,7 +257,10 @@ export function OsteoStatus() {
               bone structures and imaging environments.
             </p>
             <div className="flex gap-4">
-              <Link href="https://github.com/Richieparrish/osteo" target="_blank">
+              <Link
+                href="https://github.com/Richieparrish/osteo"
+                target="_blank"
+              >
                 <Button className="mt-6">
                   <Github className="w-4 h-4" />
                   View Source
